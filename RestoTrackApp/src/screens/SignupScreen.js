@@ -1,22 +1,46 @@
-import React from "react";
-import { View, StyleSheet, Button, Text } from "react-native";
+import React, { useContext } from "react";
+import { View, StyleSheet } from "react-native";
+import { NavigationEvents } from "react-navigation";
+import { Context as AuthContext } from "../context/AuthContext";
+import AuthForm from "../components/AuthForm";
+import NavLink from "../components/NavLink";
 
 const SignupScreen = ({ navigation }) => {
+  const { state, signup, clearErrorMessage } = useContext(AuthContext);
+
   return (
-    <>
-      <Text style={{ fontSize: 48 }}>SignUp Screen </Text>
-      <Button
-        title="Go to Signin"
-        onPress={() => navigation.navigate("Signin")}
+    <View style={styles.container}>
+      <NavigationEvents onWillBlur={clearErrorMessage} />
+      <AuthForm
+        headerText="Register for RestoTracker"
+        errorMessage={state.errorMessage}
+        submitButtonText="Register"
+        onSubmit={({ email, password }) => signup({ email, password })}
       />
-      <Button
-        title="Go to Main Flow"
-        onPress={() => navigation.navigate("mainFlow")}
+      <NavLink
+        routeName="Signin"
+        text="Already have an account? Sign in instead"
       />
-    </>
+    </View>
   );
 };
 
-const styles = StyleSheet.create({});
+SignupScreen.navigationOptions = () => {
+  return {
+    headerShown: false,
+  };
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 16,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+});
 
 export default SignupScreen;
