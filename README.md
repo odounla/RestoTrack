@@ -71,4 +71,21 @@ Design focus on "value" instead of "feature"
 "Success criteria" defined
 Design aligns with success criteria
 
+
 Answer: here the Figma Link : https://www.figma.com/design/oxUPzKasSKw1wMUyL9Sab7/RestoTrack---Restaurant-Finder-App?node-id=0-1&node-type=canvas&t=DfwSoWiIqsw0IY6K-0
+
+Checkpoint 3 - Basic Functionality
+
+Since the last version of the RestoTrack project, we’ve implemented several key features to enhance functionality and user experience:
+
+	•	API Integration with Yelp: The app now integrates fully with Yelp’s API, allowing users to view restaurants based on city or menu type. For each restaurant, users can:
+	•	View Details: Access three images of the menu, address, location, and phone number.
+	•	Google Maps Integration: A clickable button opens Google Maps to show the route starting from the user’s current geolocation.
+	•	Direct Call Option: An icon allows users to call the restaurant directly for reservations.
+	•	Login API: We created a custom login API using MongoDB and Express for user authentication.
+	•	Data Structuring: Restaurant data is well-organized, making it easy to filter and access based on user selections.
+	•	State Management: We implemented state management across different parts of the app, including a custom useRestaurants hook to handle specific state requirements. The AuthForm also manages state for authentication, supporting both signup and signin functionalities.
+
+Remaining Work
+
+	•	User Preferences: We’ve begun working on storing user preferences, such as saved locations and menu preferences, in the user’s account. This will allow dynamic loading of these preferences rather than relying on hardcoded values.
